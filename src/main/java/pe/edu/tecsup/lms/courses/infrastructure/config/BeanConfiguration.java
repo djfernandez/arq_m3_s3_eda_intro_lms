@@ -29,9 +29,9 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public PublishCourseUseCase publishCourseUseCase(CourseRepository repository) {
+    public PublishCourseUseCase publishCourseUseCase(CourseRepository repository, EventPublisher eventPublisher) {
 
-        return new PublishCourseUseCaseImpl(repository);
+        return new PublishCourseUseCaseImpl(repository, eventPublisher);
 
     }
 }

@@ -22,13 +22,14 @@ public class CreateCourseUseCaseImpl implements CreateCourseUseCase {
         Course saved = repository.save(course);
         log.info("Course created: {}", saved.getId());
 
-        // Publicar el evento
+        // Crear el evento
         CourseCreatedEvent event =
                 new CourseCreatedEvent(
                         saved.getId().toString(),
                         saved.getTitle(),
                         saved.getInstructor());
 
+        // Publicar el evento
         this.eventPublisher.publish(event);
 
 

@@ -5,6 +5,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import pe.edu.tecsup.lms.courses.domain.event.CourseCreatedEvent;
+import pe.edu.tecsup.lms.courses.domain.event.CoursePublishedEvent;
 
 /**
  * Es el consumidor de eventos
@@ -22,5 +23,14 @@ public class AnalyticsEventHandler {
         log.info("Ending analytics ........ : {}", event.getTitle());
 
     }
+
+    @Async("eventExecutor")
+    @EventListener
+    public void handleCoursePublished(CoursePublishedEvent event) throws InterruptedException {
+
+        log.info("Starting analytics ........ : {}", event);
+
+    }
+
 
 }

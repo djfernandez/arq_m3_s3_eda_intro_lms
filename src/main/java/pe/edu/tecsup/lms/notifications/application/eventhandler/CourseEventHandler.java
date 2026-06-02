@@ -1,4 +1,4 @@
-package pe.edu.tecsup.lms.notifications.application.event;
+package pe.edu.tecsup.lms.notifications.application.eventhandler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;

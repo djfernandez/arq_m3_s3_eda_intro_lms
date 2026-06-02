@@ -2,6 +2,7 @@ package pe.edu.tecsup.lms.analytics.application.eventhandler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import pe.edu.tecsup.lms.courses.domain.event.CourseCreatedEvent;
 
@@ -12,6 +13,7 @@ import pe.edu.tecsup.lms.courses.domain.event.CourseCreatedEvent;
 @Component
 public class AnalyticsEventHandler {
 
+    @Async("eventExecutor")
     @EventListener
     public void handleCourseCreated(CourseCreatedEvent event) throws InterruptedException {
 

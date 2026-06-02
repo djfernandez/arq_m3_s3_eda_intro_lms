@@ -13,9 +13,11 @@ import pe.edu.tecsup.lms.courses.domain.event.CourseCreatedEvent;
 public class AnalyticsEventHandler {
 
     @EventListener
-    public void handleCourseCreated(CourseCreatedEvent event)
-    {
-        log.info("Doing analytics ........ : {}", event);
+    public void handleCourseCreated(CourseCreatedEvent event) throws InterruptedException {
+
+        log.info("Starting analytics ........ : {}", event);
+        Thread.sleep(4000);
+        log.info("Ending analytics ........ : {}", event.getTitle());
 
     }
 

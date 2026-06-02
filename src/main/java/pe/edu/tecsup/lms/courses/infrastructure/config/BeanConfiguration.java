@@ -10,6 +10,7 @@ import pe.edu.tecsup.lms.courses.application.PublishCourseUseCase;
 import pe.edu.tecsup.lms.courses.application.PublishCourseUseCaseImpl;
 
 import pe.edu.tecsup.lms.courses.domain.repository.CourseRepository;
+import pe.edu.tecsup.lms.shared.domain.event.EventPublisher;
 
 /**
  * CONFIGURACIÓN DE BEANS
@@ -21,9 +22,9 @@ import pe.edu.tecsup.lms.courses.domain.repository.CourseRepository;
 public class BeanConfiguration {
 
     @Bean
-    public CreateCourseUseCase createCourseUseCase(CourseRepository repository) {
+    public CreateCourseUseCase createCourseUseCase(CourseRepository repository, EventPublisher eventPublisher) {
 
-        return new CreateCourseUseCaseImpl(repository);
+        return new CreateCourseUseCaseImpl(repository, eventPublisher);
 
     }
 

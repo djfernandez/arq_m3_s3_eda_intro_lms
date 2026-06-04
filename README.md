@@ -1,11 +1,11 @@
 # Implementación de EDA
 
-## Diagrama de clases
+## 1. Diagrama de clases
 <img src="images/EDA.png"/>
 
-## Pruebas
+## 2. Pruebas
 
-### 1. Crear un curso
+### 2.1. Crear un curso
 POST : http://localhost:8080/api/courses
 
 ```
@@ -17,8 +17,22 @@ POST : http://localhost:8080/api/courses
 
 ```
 
-### 2. Publicar un curso
+### 2.2. Publicar un curso
 
 PUT : http://localhost:8080/api/courses/1/publish
 
 Donde el ID del curso es 1
+
+## 3. Ejercicios
+
+### Crear Eventos y Handlers para los siguientes casos:
+
+#### StudentEnrolledEvent
+- Handler: Enviar email de bienvenida
+- Handler: Actualizar estadísticas del curso
+- Handler: Crear acceso al material
+
+#### LessonCompletedEvent
+- Handler: Actualizar progreso
+- Handler: Enviar notificación de logro
+- Handler: Verificar si completó el curso

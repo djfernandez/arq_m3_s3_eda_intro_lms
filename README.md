@@ -5,7 +5,7 @@
 
 ## Pruebas
 
-### 1. Creación de curso
+### 1. Crear un curso
 POST : http://localhost:8080/api/courses
 
 ```

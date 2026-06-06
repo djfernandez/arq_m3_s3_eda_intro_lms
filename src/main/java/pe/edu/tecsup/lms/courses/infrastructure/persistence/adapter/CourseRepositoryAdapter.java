@@ -1,14 +1,17 @@
 package pe.edu.tecsup.lms.courses.infrastructure.persistence.adapter;
 
-import lombok.RequiredArgsConstructor;
+import java.util.Objects;
+import java.util.Optional;
+
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
+
+import lombok.RequiredArgsConstructor;
 import pe.edu.tecsup.lms.courses.domain.model.Course;
 import pe.edu.tecsup.lms.courses.domain.repository.CourseRepository;
 import pe.edu.tecsup.lms.courses.infrastructure.persistence.entity.CourseJpaEntity;
 import pe.edu.tecsup.lms.courses.infrastructure.persistence.mapper.CourseJpaMapper;
 import pe.edu.tecsup.lms.courses.infrastructure.persistence.repository.JpaCourseRepository;
-
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -18,14 +21,18 @@ public class CourseRepositoryAdapter implements CourseRepository {
     private final CourseJpaMapper mapper;
 
     @Override
-    public Course save(Course course) {
-        CourseJpaEntity entity = mapper.toEntity(course);
+    public @NonNull Course save(@NonNull Course course) {
+        CourseJpaEntity entity = Objects.requireNonNull(
+                mapper.toEntity(course), "mapper.toEntity(...) returned null");
         CourseJpaEntity saved = jpaRepository.save(entity);
-        return mapper.toDomain(saved);
+        return Objects.requireNonNull(
+                mapper.toDomain(saved), "mapper.toDomain(...) returned null");
     }
 
     @Override
-    public Optional<Course> findById(Long id) {
-        return jpaRepository.findById(id).map(mapper::toDomain);
+    public @NonNull Optional<Course> findById(@NonNull Long id) {
+        return Objects.requireNonNull(jpaRepository.findById(id).map(entity -> Objects.requireNonNull(
+                mapper.toDomain(entity), "mapper.toDomain(...) returned null")),
+                "jpaRepository.findById(...) returned null");
     }
 }

@@ -1,6 +1,5 @@
 package pe.edu.tecsup.lms.courses.application;
 
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +20,9 @@ public class PublishCourseUseCaseImpl implements PublishCourseUseCase {
     @Override
     @Transactional
     public Course publishCourse(Long courseId) {
+        if (courseId == null) {
+            throw new CourseNotFoundException(null);
+        }
         Course course = repository.findById(courseId)
                 .orElseThrow(() -> new CourseNotFoundException(courseId));
 
@@ -30,11 +32,9 @@ public class PublishCourseUseCaseImpl implements PublishCourseUseCase {
         log.info("Course published: {}", saved.getId());
 
         // Crear el eventp
-        CoursePublishedEvent event
-                = new CoursePublishedEvent(
-                                            saved.getId().toString(),
-                                            saved.getTitle()
-                                            );
+        CoursePublishedEvent event = new CoursePublishedEvent(
+                saved.getId().toString(),
+                saved.getTitle());
 
         // Publicar el evento
         this.eventPublisher.publish(event);

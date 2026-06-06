@@ -1,9 +1,14 @@
 package pe.edu.tecsup.lms.courses.infrastructure.web.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import pe.edu.tecsup.lms.courses.application.CreateCourseUseCase;
 import pe.edu.tecsup.lms.courses.application.PublishCourseUseCase;
 import pe.edu.tecsup.lms.courses.domain.model.Course;
@@ -22,8 +27,7 @@ public class CourseController {
         Course course = createCourseUseCase.createCourse(
                 request.getTitle(),
                 request.getDescription(),
-                request.getInstructor()
-        );
+                request.getInstructor());
         return ResponseEntity.ok(course);
     }
 

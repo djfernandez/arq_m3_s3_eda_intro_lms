@@ -1,9 +1,10 @@
 package pe.edu.tecsup.lms.shared.domain.event;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -13,13 +14,15 @@ public class EventPublisher {
     private final ApplicationEventPublisher publisher;
 
     /**
-     *  Método que publica el evento
+     * Método que publica el evento
+     * 
      * @param event
      */
     public void publish(DomainEvent event) {
         log.info("Publishing event: {}", event);
-        this.publisher.publishEvent(event);
+        if (event != null) {
+            this.publisher.publishEvent(event);
+        }
     }
-
 
 }

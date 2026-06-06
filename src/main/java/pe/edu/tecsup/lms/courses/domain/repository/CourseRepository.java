@@ -1,13 +1,16 @@
 package pe.edu.tecsup.lms.courses.domain.repository;
 
+import java.util.Optional;
+
+import org.springframework.lang.NonNull;
 
 import pe.edu.tecsup.lms.courses.domain.model.Course;
 
-import java.util.Optional;
-
 public interface CourseRepository {
 
-    Course save(Course course) ;
+    @NonNull
+    Course save(@NonNull Course course);
 
-    Optional<Course> findById(Long courseId);
+    @NonNull
+    Optional<Course> findById(@NonNull Long courseId);
 }

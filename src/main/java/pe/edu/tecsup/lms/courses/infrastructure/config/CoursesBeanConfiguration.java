@@ -1,37 +1,35 @@
 package pe.edu.tecsup.lms.courses.infrastructure.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pe.edu.tecsup.lms.courses.application.CreateCourseUseCase;
-
 import pe.edu.tecsup.lms.courses.application.CreateCourseUseCaseImpl;
 import pe.edu.tecsup.lms.courses.application.PublishCourseUseCase;
 import pe.edu.tecsup.lms.courses.application.PublishCourseUseCaseImpl;
-
 import pe.edu.tecsup.lms.courses.domain.repository.CourseRepository;
 import pe.edu.tecsup.lms.shared.domain.event.EventPublisher;
 
 /**
- * CONFIGURACIÓN DE BEANS
+ * CONFIGURACION DE BEANS
  *
- * Registra los Use Cases (impls) detrás de su interfaz (input port).
- * El controller depende de la interfaz, no de la implementación.
+ * Registra los Use Cases (impls) detras de su interfaz (input port).
+ * El controller depende de la interfaz, no de la implementacion.
  */
 @Configuration
-public class BeanConfiguration {
+public class CoursesBeanConfiguration {
 
-    @Bean
-    public CreateCourseUseCase createCourseUseCase(CourseRepository repository, EventPublisher eventPublisher) {
+  @Bean
+  public CreateCourseUseCase createCourseUseCase(CourseRepository repository, EventPublisher eventPublisher) {
 
-        return new CreateCourseUseCaseImpl(repository, eventPublisher);
+    return new CreateCourseUseCaseImpl(repository, eventPublisher);
 
-    }
+  }
 
-    @Bean
-    public PublishCourseUseCase publishCourseUseCase(CourseRepository repository, EventPublisher eventPublisher) {
+  @Bean
+  public PublishCourseUseCase publishCourseUseCase(CourseRepository repository, EventPublisher eventPublisher) {
 
-        return new PublishCourseUseCaseImpl(repository, eventPublisher);
+    return new PublishCourseUseCaseImpl(repository, eventPublisher);
 
-    }
+  }
+
 }

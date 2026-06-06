@@ -60,6 +60,7 @@ Donde el ID del curso es 1
 <img src="images/retry_path_config_class.png"/>
 
 
+RetryConfig.java
 ```
 package pe.edu.tecsup.lms.shared.infrastructure.config;
 

@@ -36,3 +36,21 @@ Donde el ID del curso es 1
 - Handler: Actualizar progreso
 - Handler: Enviar notificación de logro
 - Handler: Verificar si completó el curso
+
+
+## 4. Implementando Retry
+
+### 4.1. Agregar la dependencia
+```
+     <!-- Spring Retry -->
+     <dependency>
+         <groupId>org.springframework.retry</groupId>
+         <artifactId>spring-retry</artifactId>
+         <version>2.0.4</version>  <!-- La versión es importante considerarla -->
+     </dependency>
+     <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-aspects</artifactId>
+     </dependency>
+     
+```

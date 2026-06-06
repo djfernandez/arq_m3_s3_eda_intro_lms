@@ -54,3 +54,22 @@ Donde el ID del curso es 1
      </dependency>
      
 ```
+### 4.2. Crear la clase de Configruacion para habilitar Spring Retry
+
+
+<img src="images/retry_path_config_class.png"/ >
+
+
+```
+package pe.edu.tecsup.lms.shared.infrastructure.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.annotation.EnableRetry;
+
+@Configuration
+@EnableRetry
+public class RetryConfig {
+}
+
+
+```

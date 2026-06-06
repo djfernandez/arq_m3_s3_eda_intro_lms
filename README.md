@@ -131,3 +131,8 @@ public class PaymentEventHandler {
 }
 
 ```
+
+
+### 5 Ejercicio : Crear intentos de :
+- Notification --> NotificationHandler:  ( 2 intentos)
+- StudentEnrolledEvent --> Handler: Enviar email de bienvenida ( 2 intentos)

@@ -1,9 +1,9 @@
 package pe.edu.tecsup.lms.courses.application;
 
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.transaction.annotation.Transactional;
 import pe.edu.tecsup.lms.courses.domain.event.CoursePublishedEvent;
 import pe.edu.tecsup.lms.courses.domain.exception.CourseNotFoundException;
 import pe.edu.tecsup.lms.courses.domain.model.Course;
@@ -30,11 +30,9 @@ public class PublishCourseUseCaseImpl implements PublishCourseUseCase {
         log.info("Course published: {}", saved.getId());
 
         // Crear el eventp
-        CoursePublishedEvent event
-                = new CoursePublishedEvent(
-                                            saved.getId().toString(),
-                                            saved.getTitle()
-                                            );
+        CoursePublishedEvent event = new CoursePublishedEvent(
+                saved.getId().toString(),
+                saved.getTitle());
 
         // Publicar el evento
         this.eventPublisher.publish(event);

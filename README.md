@@ -57,7 +57,7 @@ Donde el ID del curso es 1
 ### 4.2. Crear la clase de Configruacion para habilitar Spring Retry
 
 
-<img src="images/retry_path_config_class.png"/ >
+    <img src="images/retry_path_config_class.png"/>
 
 
 ```

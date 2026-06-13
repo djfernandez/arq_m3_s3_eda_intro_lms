@@ -18,13 +18,16 @@ public class CompleteLessonUseCaseImpl implements CompleteLessonUseCase {
       String studentId,
       String courseId,
       String lessonId,
-      String lessonTitle) {
+      String lessonTitle,
+      String enrollmentId) {
     LessonCompletedEvent event = new LessonCompletedEvent(
+        enrollmentId,
         studentId,
         courseId,
         lessonId,
         lessonTitle,
-        LocalDateTime.now());
+        LocalDateTime.now(),
+        0);
 
     log.info("Lesson completed event created: {}", event);
     eventPublisher.publish(event);

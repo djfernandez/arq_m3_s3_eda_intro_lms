@@ -1,22 +1,15 @@
-package pe.edu.tecsup.lms.EnrollStudent.domain.event;
+package pe.edu.tecsup.lms.EnrollStudent.application.command;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.ToString;
-import pe.edu.tecsup.lms.shared.domain.event.DomainEvent;
 
-@AllArgsConstructor
 @Getter
-@ToString
 @Builder
-public class StudentEnrolledEvent extends DomainEvent {
-
+public class EnrollStudentCommand {
   private final String enrollmentId;
   private final String studentId;
   private final String studentName;
   private final String studentEmail;
   private final String courseId;
   private final String courseTitle;
-
 }

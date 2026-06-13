@@ -21,6 +21,7 @@ public class LessonController {
   @PostMapping("/{id}/lessons/complete")
   public ResponseEntity<Void> completeLesson(@PathVariable Long id, @RequestBody CompleteLessonRequest request) {
     completeLessonUseCase.completeLesson(
+        request.getEnrollmentId(),
         request.getStudentId(),
         String.valueOf(id),
         request.getLessonId(),

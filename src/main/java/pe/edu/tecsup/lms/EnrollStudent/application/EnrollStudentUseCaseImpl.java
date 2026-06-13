@@ -13,12 +13,14 @@ public class EnrollStudentUseCaseImpl implements EnrollStudentUseCase {
 
   @Override
   public void enrollStudent(
+      String enrollmentId,
       String studentId,
       String studentName,
       String studentEmail,
       String courseId,
       String courseTitle) {
     StudentEnrolledEvent event = new StudentEnrolledEvent(
+        enrollmentId,
         studentId,
         studentName,
         studentEmail,

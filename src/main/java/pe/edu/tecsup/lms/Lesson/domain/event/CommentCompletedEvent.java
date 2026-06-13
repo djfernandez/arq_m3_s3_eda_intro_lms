@@ -12,14 +12,12 @@ import pe.edu.tecsup.lms.shared.domain.event.DomainEvent;
 @Getter
 @ToString
 @Builder
-public class LessonCompletedEvent extends DomainEvent {
+public class CommentCompletedEvent extends DomainEvent {
 
-  private final String enrollmentId;
+  private final String courseCommentId;
   private final String studentId;
+  private final String studentComment;
   private final String courseId;
-  private final String lessonId;
-  private final String lessonTitle;
   private final LocalDateTime completedAt;
   private final int newProgressPercentage;
-
 }

@@ -21,6 +21,7 @@ public class EnrollStudentController {
   @PostMapping("/{id}/enroll")
   public ResponseEntity<Void> enrollStudent(@PathVariable Long id, @RequestBody EnrollStudentRequest request) {
     enrollStudentUseCase.enrollStudent(
+        request.getEnrollmentId(),
         request.getStudentId(),
         request.getStudentName(),
         request.getStudentEmail(),
